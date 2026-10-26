@@ -1,0 +1,12 @@
+App\Entity\Forecast:
+    properties:
+        city:
+            - NotNull: { message: 'Wybierz miasto', groups: ['new', 'edit'] }
+        date:
+            - NotNull: { message: 'Podaj date', groups: ['new', 'edit'] }
+            - GreaterThanOrEqual: { value: 'today', message: 'Nowa prognoza nie moze dotyczyć przeszłosci.', groups: ['new'] }
+        temperature:
+            - NotBlank: { message: 'Podaj temperaturę.', groups: ['new', 'edit'] }
+            - Range: { min: -60, max: 60, notInRangeMessage: 'Temperatura musi być miedzy {{ min }} a {{ max }} °C.', groups: ['new', 'edit'] }
+        description:
+            - Length: { max: 255, groups: ['new', 'edit'] }

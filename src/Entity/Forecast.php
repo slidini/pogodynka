@@ -49,7 +49,7 @@ class Forecast
         return $this->temperature;
     }
 
-    public function setTemperature(string $temperature): static
+    public function setTemperature(?string $temperature): static
     {
         $this->temperature = $temperature;
 
@@ -61,7 +61,7 @@ class Forecast
         return $this->date;
     }
 
-    public function setDate(\DateTime $date): static
+    public function setDate(?\DateTime $date): static
     {
         $this->date = $date;
 
