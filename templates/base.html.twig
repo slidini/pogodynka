@@ -44,6 +44,11 @@
             </ul>
         </div>
     </div>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <a class="btn btn-primary" href="{{ path('app_logout') }}">Logout</a>
+    {% else %}
+        <a class="btn btn-primary" href="{{ path('app_login') }}">Login</a>
+    {% endif %}
 </nav>
 
 <main class="container">

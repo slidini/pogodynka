@@ -25,8 +25,12 @@
                 <td>{{ forecast.date ? forecast.date|date('Y-m-d') : '' }}</td>
                 <td>{{ forecast.description }}</td>
                 <td>
+                    {% if is_granted('ROLE_FORECAST_SHOW') %}
                     <a href="{{ path('app_forecast_show', {'id': forecast.id}) }}" class="btn btn-primary">show</a>
+                    {% endif %}
+                    {% if is_granted('ROLE_FORECAST_EDIT') %}
                     <a href="{{ path('app_forecast_edit', {'id': forecast.id}) }}" class="btn btn-primary">edit</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -37,6 +41,7 @@
         </tbody>
     </table>
 </div>
-
+    {% if is_granted('ROLE_FORECAST_NEW') %}
     <a href="{{ path('app_forecast_new') }}" class="btn btn-primary">Create new</a>
+    {% endif %}
 {% endblock %}
