@@ -56,6 +56,11 @@ class Forecast
         return $this;
     }
 
+    public function getFahrenheit(): float
+    {
+        return round((float)$this->getTemperature()*9/5+32, 2);
+    }
+
     public function getDate(): ?\DateTime
     {
         return $this->date;
